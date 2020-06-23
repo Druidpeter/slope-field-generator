@@ -18,6 +18,7 @@ def create_slope_field(x_low, x_high, y_low, y_high):
     for x in range(x_low, x_high + 1):
         for y in range(y_low, y_high + 1):
             try:
+                # Recommended sample differential equations for testing.                
                 # m = math.e ** x - math.pi ** y
                 # m = x * y
                 # m = x ** y
@@ -25,6 +26,8 @@ def create_slope_field(x_low, x_high, y_low, y_high):
                 # m = math.log(x)
                 # m = math.log(abs(x))
                 # m = (-1) * x / y
+                
+                # Establishes how far the tick marks can "reach" beyond their respective points.
                 reach = 0.3 * math.cos(math.atan(m))
                 ax.plot(np.linspace(x - reach, x + reach, 999),
                         m * (np.linspace(x - reach, x + reach, 999) - x) + y,
