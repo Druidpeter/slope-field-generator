@@ -23,7 +23,7 @@ def create_slope_field(x_range, y_range):
     plt.xticks(np.arange((-1) * x_range, x_range + 1, 1.0))
     plt.yticks(np.arange((-1) * y_range, y_range + 1, 1.0))
 
-    ax.tick_params(axis='both', labelsize=6)
+    ax.tick_params(axis='both', labelsize=5)
 
     for x in range((-1) * x_range, x_range + 1):
         for y in range((-1) * y_range, y_range + 1):
