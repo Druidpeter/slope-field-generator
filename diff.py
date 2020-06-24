@@ -3,10 +3,15 @@ import numpy as np
 from math import *
 
 
-def create_slope_field(x_low, x_high, y_low, y_high):
-    fig = plt.figure(figsize=(6, 6))
-    plt.xlim(x_low, x_high)
-    plt.ylim(y_low, y_high)
+def create_slope_field(x_range, y_range):
+
+    if x_range > y_range:
+        fig = plt.figure(figsize=(6, y_range / x_range * 6))
+    else:
+        fig = plt.figure(figsize=(x_range / y_range * 6, 6))
+
+    plt.xlim((-1) * x_range, x_range)
+    plt.ylim((-1) * y_range, y_range)
 
     ax = plt.gca()
 
@@ -15,15 +20,20 @@ def create_slope_field(x_low, x_high, y_low, y_high):
     ax.spines['bottom'].set_position('zero')
     ax.spines['top'].set_color('none')
 
-    for x in range(x_low, x_high + 1):
-        for y in range(y_low, y_high + 1):
+    plt.xticks(np.arange((-1) * x_range, x_range + 1, 1.0))
+    plt.yticks(np.arange((-1) * y_range, y_range + 1, 1.0))
+
+    ax.tick_params(axis='both', labelsize=6)
+
+    for x in range((-1) * x_range, x_range + 1):
+        for y in range((-1) * y_range, y_range + 1):
             try:
-                m = e ** x - pi ** y
+                # m = e ** x - pi ** y
                 # m = x * y
                 # m = x ** y
                 # m = 2 * x / y
                 # m = log(x)
-                # m = log(abs(x))
+                m = log(abs(x))
                 # m = (-1) * x / y
                 reach = 0.3 * cos(atan(m))
                 ax.plot(np.linspace(x - reach, x + reach, 999),
@@ -39,11 +49,11 @@ def create_slope_field(x_low, x_high, y_low, y_high):
 
 
 def main():
-    x_low = int(input("Please enter the lower x-axis bound: "))
-    x_high = int(input("Please enter the upper x-axis bound: "))
-    y_low = int(input("Please enter the lower y-axis bound: "))
-    y_high = int(input("Please enter the upper y-axis bound: "))
-    create_slope_field(x_low, x_high, y_low, y_high)
+
+    x_range = int(input("Please input the max x value: "))
+    y_range = int(input("Please input the max y value: "))
+
+    create_slope_field(x_range, y_range)
 
 
 if __name__ == "__main__":
