@@ -6,7 +6,7 @@ from math import *
 def create_slope_field(x_range, y_range):
 
     if x_range > y_range:
-        fig = plt.figure(figsize=(6, y_range / x_range * 6))
+        fig = plt.figure(figsize=(12, y_range / x_range * 12))
     else:
         fig = plt.figure(figsize=(x_range / y_range * 6, 6))
 
