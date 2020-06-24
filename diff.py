@@ -15,6 +15,8 @@ def create_slope_field(x_range, y_range):
 
     ax = plt.gca()
 
+    plt.style.use('fivethirtyeight')
+
     ax.spines['left'].set_position('zero')
     ax.spines['right'].set_color('none')
     ax.spines['bottom'].set_position('zero')
@@ -28,17 +30,19 @@ def create_slope_field(x_range, y_range):
     for x in range((-1) * x_range, x_range + 1):
         for y in range((-1) * y_range, y_range + 1):
             try:
+                m = x + y
+                # m = cos(y)
                 # m = e ** x - pi ** y
                 # m = x * y
                 # m = x ** y
-                m = 2 * x / y
+                # m = 2 * x / y
                 # m = log(x)
                 # m = log(abs(x))
                 # m = (-1) * x / y
                 reach = 0.3 * cos(atan(m))
                 ax.plot(np.linspace(x - reach, x + reach, 999),
                         m * (np.linspace(x - reach, x + reach, 999) - x) + y,
-                        c='#960a00', linewidth='0.5')
+                        c='#960a00', linewidth='1')
             except ZeroDivisionError:
                 ax.scatter(x, y, s=10, c='#0307fc')
                 pass
@@ -58,7 +62,7 @@ def main():
     print()
     print("Slope lines will be red ticks and points where the slope is undefined will be highlighted in blue.")
 
-    query = bool(input("Do you understand? (press any key): "))
+    query = bool(input("Do you understand? (press enter): "))
     create_slope_field(x_range, y_range)
 
 
