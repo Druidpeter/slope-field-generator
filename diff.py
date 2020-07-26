@@ -4,7 +4,7 @@ from math import *
 
 
 def create_slope_field(x_range, y_range):
-    
+
     # adjust the size and proportions of the window such that the maximum dimensions are 12 in. wide and 6 in. high
     if x_range > y_range:
         fig = plt.figure(figsize=(12, y_range / x_range * 12))
@@ -42,7 +42,7 @@ def create_slope_field(x_range, y_range):
                 # m = log(x)
                 # m = log(abs(x))
                 # m = (-1) * x / y
-                
+
                 # make sure the ticks do not extend further than 0.5 units from the point
                 reach = 0.3 * cos(atan(m))
                 ax.plot(np.linspace(x - reach, x + reach, 999),
@@ -70,7 +70,7 @@ def main():
     print()
     print("Slope lines will be red ticks and points where the slope is undefined will be highlighted in blue.")
 
-    query = bool(input("Do you understand? (press enter): "))
+    query = bool(input("Press enter to continue: "))
     create_slope_field(x_range, y_range)
 
 
