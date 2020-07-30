@@ -33,7 +33,7 @@ def create_slope_field(x_range, y_range):
         for y in range((-1) * y_range, y_range + 1):
             try:
                 # enter differential equation here
-                m = x + y
+                # m = x + y
                 # m = cos(y)
                 # m = e ** x - pi ** y
                 # m = x * y
@@ -41,7 +41,7 @@ def create_slope_field(x_range, y_range):
                 # m = 2 * x / y
                 # m = log(x)
                 # m = log(abs(x))
-                # m = (-1) * x / y
+                m = (-1) * x / y
 
                 # make sure the ticks do not extend further than 0.5 units from the point
                 reach = 0.3 * cos(atan(m))
@@ -50,7 +50,7 @@ def create_slope_field(x_range, y_range):
                         c='#960a00', linewidth='1')
             # catch errors caused by zero division and functions with limited domains
             # for instance, for log(x), D: x ε (0, infinity)
-            # points where the slop is undefined will be highlighted in blue
+            # points where the slope is undefined will be highlighted in blue
             except ZeroDivisionError:
                 ax.scatter(x, y, s=10, c='#0307fc')
                 pass
