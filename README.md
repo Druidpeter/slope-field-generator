@@ -11,7 +11,7 @@ This program takes a differential equation of the form dy/dx = _______ and limit
 ## Built With
 
 * [matplotlib](https://matplotlib.org/) - versatile graphing framework
-* [NumPy](https://numpy.org/) - high performance computation and arrays
+* [NumPy](https://numpy.org/) - high performance computation tools and arrays
 
 ## Acknowledgments
 
